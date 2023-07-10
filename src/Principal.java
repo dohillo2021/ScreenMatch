@@ -4,6 +4,8 @@ import modelos.Episodio;
 import modelos.Filme;
 import modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
       public static void main(String[] args) {
             Filme filme1 = new Filme();
@@ -55,10 +57,23 @@ public class Principal {
             episodio.setSerie(lost);
             episodio.setTotalVisualizacoes(300);
 
-            FiltroRecomendacao filtro = new FiltroRecomendacao();
-            filtro.filtrar(favorito);
-            filtro.filtrar(outro);
-            filtro.filtrar(primeiro);
+            var filmeDoPaulo = new Filme();
+            filmeDoPaulo.setDuracaoEmMinutos(200);
+            filmeDoPaulo.setNome("DogVille");
+            filmeDoPaulo.setAnoDeLancamento(2003);
+            filmeDoPaulo.avalia(10);
+
+
+            ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+
+            listaDeFilmes.add(filmeDoPaulo);
+            listaDeFilmes.add(filme1);
+            listaDeFilmes.add(filme2);
+
+            System.out.println("Tamanho da lista " + listaDeFilmes.size());
+            System.out.println("Primeiro Filme " + listaDeFilmes.get(0).getNome());
+
+            System.out.println(listaDeFilmes);
 
       }
 }
